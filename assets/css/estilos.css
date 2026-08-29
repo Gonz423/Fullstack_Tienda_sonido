@@ -1,0 +1,37 @@
+:root {
+    --fuente: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente);
+}
+
+:focus-visible {
+    outline: 2px solid;
+}
+
+nav ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.grid-productos {
+    gap: 10px;
+}
+
+img {
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .grid-productos {
+        display: flex;
+    }
+}
