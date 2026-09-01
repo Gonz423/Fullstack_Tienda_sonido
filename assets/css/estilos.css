@@ -1,27 +1,284 @@
+/* 1. Variables */
 :root {
     --fuente: sans-serif;
+    --color-a: #7B4B3A;
+    --color-b: #4B2E2B;
+    --color-c: #351b16;
+    --color-d: #b96622;
+    --color-e: #dac6b3;
+    --color-f: #ece6df;
+    --color-g: #864a25;
+    --color-h: black;
 }
 
+/* 2. Base y tipografía */
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: var(--fuente);
+    background-color: var(--color-f);
+    color: var(--color-c);
 }
 
 :focus-visible {
-    outline: 2px solid;
+    outline: 2px solid var(--color-d);
 }
 
+/* 3. Estructura */
+.grid-productos {
+    gap: 10px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-a) 0%, var(--color-d) 100%);
+    padding: 0.5rem;
+}
+
+main {
+    padding: 2rem 1.25rem 3rem;
+}
+
+.hero-section,
+.destacados-section,
+.multimedia-section,
+aside {
+    margin-bottom: 2rem;
+}
+
+/* 4. Navegación */
 nav ul {
     display: flex;
     gap: 10px;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.grid-productos {
-    gap: 10px;
+nav a {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    background-color: color-mix(in srgb, var(--color-f) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-f) 25%, transparent);
+    color: var(--color-f);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--color-e);
+    color: var(--color-c);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--color-c) 18%, transparent);
+}
+
+/* 5. Componentes */
+.hero-section {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-e) 80%, white), color-mix(in srgb, var(--color-f) 75%, white));
+    border: 1px solid color-mix(in srgb, var(--color-d) 30%, transparent);
+    border-radius: 18px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--color-c) 8%, transparent);
+}
+
+.hero-section h1,
+.destacados-section h2,
+.multimedia-section h2,
+aside h2 {
+    color: var(--color-c);
+    margin-bottom: 1rem;
+}
+
+.hero-section p,
+.destacados-section p,
+.multimedia-section p,
+aside p,
+.media-card figcaption,
+.card-producto figcaption {
+    color: var(--color-b);
+    line-height: 1.6;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    margin-top: 1rem;
+    border-radius: 999px;
+    background-color: var(--color-d);
+    color: var(--color-f);
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 18px color-mix(in srgb, var(--color-d) 30%, transparent);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+    background-color: var(--color-g);
+    transform: translateY(-2px);
+}
+
+.grid-productos,
+.media-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.card-producto,
+.media-card,
+aside section {
+    background: color-mix(in srgb, var(--color-f) 70%, white);
+    border: 1px solid color-mix(in srgb, var(--color-e) 80%, var(--color-c));
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--color-c) 6%, transparent);
+}
+
+.card-producto figure,
+.media-card figure {
+    margin: 0;
+}
+
+.card-producto img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: color-mix(in srgb, var(--color-e) 60%, white);
+}
+
+.card-producto figcaption,
+.media-card figcaption {
+    padding: 0.75rem 1rem 0;
+    font-size: 0.9rem;
+}
+
+.producto-info,
+.media-card figure {
+    padding: 1rem;
+}
+
+.producto-info h3,
+.media-card h3,
+aside h3 {
+    color: var(--color-c);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.categoria,
+.stock-status {
+    color: var(--color-b);
+    margin: 0.35rem 0;
+    font-size: 0.95rem;
+}
+
+.precio {
+    color: var(--color-d);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0.6rem 0;
+}
+
+.media-card audio,
+.media-card video {
+    width: 100%;
+    border-radius: 12px;
+}
+
+aside {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-e) 50%, white), color-mix(in srgb, var(--color-f) 65%, white));
+    border: 1px solid color-mix(in srgb, var(--color-d) 25%, transparent);
+    border-radius: 18px;
+    padding: 1.5rem;
+}
+
+aside section {
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.logo h2 {
+    color: transparent;
+    margin: 0;
+    padding: 1rem;
+    display: inline-block;
+    border-radius: 8px;
+    background: linear-gradient(
+        90deg,
+        var(--color-h) 0%,
+        var(--color-h) 50%,
+        var(--color-f) 50%,
+        var(--color-f) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.45s ease, transform 0.35s ease, filter 0.25s ease;
+}
+
+.logo:hover h2,
+.logo:focus-visible h2 {
+    background-position: 0 0;
+    transform: translateX(6px);
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-f) 90%, transparent));
+}
+
+/* 6. Tablas y formularios */
+
+/* 7. Multimedia y utilidades */
+footer {
+    background-color: var(--color-b);
+    color: var(--color-f);
+    padding: 2rem 1.5rem 1rem;
+    box-shadow: 0 -6px 18px color-mix(in srgb, var(--color-c) 15%, transparent);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-f) 12%, transparent);
+    padding-top: 2rem;
+}
+
+.footer-container h3,
+.footer-container h4 {
+    margin-bottom: 0.8rem;
+    color: var(--color-f);
+}
+
+.footer-container a {
+    color: var(--color-f);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-container a:hover,
+.footer-container a:focus-visible {
+    color: var(--color-e);
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-f) 10%, transparent);
+    font-size: 0.9rem;
+    color: var(--color-e);
 }
 
 img {
