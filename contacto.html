@@ -21,7 +21,6 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Catálogo</a></li>
                     <li><a href="pedidos.html">Mis Pedidos</a></li>
-                    <li><a href="sucursal.html">Sucursal y Mapa</a></li>
                     <li><a href="contacto.html" aria-current="page">Contacto</a></li>
                 </ul>
             </nav>
@@ -29,6 +28,7 @@
     </header>
 
     <main>
+        <article class="media-card">
         <section class="contacto">
             <h1>Contacto</h1>
             <p> Aquí puedes encontrar todos los canales disponibles mediante los cuales nos puedes contactar.
@@ -46,10 +46,57 @@
                         <strong>Correo:</strong> 
                         <a href="mailto:contacto@sonidovivo.cl">contacto@sonidovivo.cl</a>
                     </p>
-                </address>
-            </section>
-        </section>
+                    </article>
+                                </address>
+                            </section>
+                        </section>
+                        <article class="media-card">
+                            <form class="formulario-consultas" action="confirmacion.html" method="get">
+                        <fieldset>
+                            <legend>Formulario de Consultas</legend>
+                            <label for="nombre">Nombre completo: </label>
+                            <input id="nombre" name="nombre" type="text" autocomplete="name" minlength="3" maxlength="80" required>
+
+                            <label for="correo">Correo electrónico</label>
+                            <input id="correo" name="correo" type="email" autocomplete="email" required>
+
+                            <label for="telefono">Teléfono</label>
+                            <input id="telefono" name="telefono" type="tel" autocomplete="tel" pattern="[0-9]{8,15}" required>
+                            
+                            <legend>Tipo de consulta</legend>
+                            <label for="consulta">Seleccione el tipo de consulta:</label>
+                            <select id="consulta" name="consulta" required>
+                                <option value="">Seleccione una opción</option>
+                                <option value="Estado">Estado de pedido</option>
+                                <option value="soporte">Soporte técnico</option>
+                                <option value="cambio">Cambios, devoluciones y garantías</option>
+                                <option value="facturacion">Dudas sobre facturación y métodos de pago</option>
+                                <option value="reclamos">Reclamos</option>
+                                <option value="otros">Otros</option>
+                            </select>
+
+                            /*campos dinamicos*/
+
+                            <div id="motivo" class="campo-oculto">
+                                <label for="detalle"> Especifique su motivo por favor:</label>
+                                <input type="text" id="detalle" name="detalle" maxlength="200" placeholder="Especifique el motivo de su consulta: ">
+                            </div>
+
+                            <div id="campo-pedido" class="campo-oculto">
+                            <label for="numero-pedido">Número de pedido:</label>
+                            <input type="text" id="numero-pedido" name="numero_pedido" autocomplete="tel" pattern="[0-9]{5,9}" required>
+                            </div>
+                        </fieldset>
+                    <label>
+                        <input type="checkbox" name="acepta_condiciones" required>
+                        Confirmo que los datos son de prueba y acepto las condiciones.
+                    </label>
+                    <a type="submit" class="btn-primary">Enviar consulta </a>
+            </article>
+        </fieldset>
+    </form>
     </main>
+
 <footer>
         <div class="footer-container">
             <section class="footer-info">
