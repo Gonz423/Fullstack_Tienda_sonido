@@ -18,7 +18,17 @@
                 <h2>Sonido Vivo</h2>
             </a>
 
-            <nav aria-label="Navegación principal">
+            <button
+                id="boton-menu"
+                class="boton-menu"
+                type="button"
+                aria-label="Abrir o cerrar menú principal"
+                aria-controls="menu-principal"
+                aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
                 <ul>
                     <li><a href="index.html" aria-current="page">Inicio</a></li>
                     <li><a href="productos.html">Catálogo</a></li>
@@ -161,6 +171,7 @@
         </div>
     </footer>
 
+    <script src="assets/js/menu.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
