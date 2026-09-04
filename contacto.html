@@ -29,75 +29,75 @@
 
     <main>
         <article class="media-card">
-        <section class="contacto">
-            <h1>Contacto</h1>
-            <p> Aquí puedes encontrar todos los canales disponibles mediante los cuales nos puedes contactar.
-            Si tienes preguntas, quejas, sugerencias o quieres contactarte con nosotros por algún otro motivo. <br> ¡En Tienda Sonido Vivo estamos para ayudarte! </p>
+            <section class="contacto">
+                <h1>Contacto</h1>
+                <p> Aquí puedes encontrar todos los canales disponibles mediante los cuales nos puedes contactar.
+                Si tienes preguntas, quejas, sugerencias o quieres contactarte con nosotros por algún otro motivo. <br> ¡En Tienda Sonido Vivo estamos para ayudarte! </p>
 
-            <section class="info-directa">
-                <h2>Información de Contacto</h2>
-                <address>
-                    <p><strong>Ubicación:</strong> Av. Libertad #450, Viña del Mar, Región de Valparaíso</p>
-                    <p>
-                        <strong>Teléfono:</strong> 
-                        <a href="tel:+56912345678">+56 9 1234 5678</a>
-                    </p>
-                    <p>
-                        <strong>Correo:</strong> 
-                        <a href="mailto:contacto@sonidovivo.cl">contacto@sonidovivo.cl</a>
-                    </p>
-                    </article>
-                                </address>
-                            </section>
-                        </section>
-                        <article class="media-card">
-                            <form class="formulario-consultas" action="confirmacion.html" method="get">
-                        <fieldset>
-                            <legend>Formulario de Consultas</legend>
-                            <label for="nombre">Nombre completo: </label>
-                            <input id="nombre" name="nombre" type="text" autocomplete="name" minlength="3" maxlength="80" required>
+                <section class="info-directa">
+                    <h2>Información de Contacto</h2>
+                    <address>
+                        <p><strong>Ubicación:</strong> Av. Libertad #450, Viña del Mar, Región de Valparaíso</p>
+                        <p>
+                            <strong>Teléfono:</strong> 
+                            <a href="tel:+56912345678">+56 9 1234 5678</a>
+                        </p>
+                        <p>
+                            <strong>Correo:</strong> 
+                            <a href="mailto:contacto@sonidovivo.cl">contacto@sonidovivo.cl</a>
+                        </p>
+                    </address>
+                </section>
+            </section>
+        </article>
 
-                            <label for="correo">Correo electrónico</label>
-                            <input id="correo" name="correo" type="email" autocomplete="email" required>
+        <article class="media-card">
+            <form class="formulario-consultas" action="confirmacion.html" method="get">
+                <fieldset>
+                    <h2>Formulario de Consultas</h2>
+                    
+                    <label for="nombre">Nombre completo: </label>
+                    <input id="nombre" name="nombre" type="text" autocomplete="name" minlength="3" maxlength="80" required>
 
-                            <label for="telefono">Teléfono</label>
-                            <input id="telefono" name="telefono" type="tel" autocomplete="tel" pattern="[0-9]{8,15}" required>
-                            
-                            <legend>Tipo de consulta</legend>
-                            <label for="consulta">Seleccione el tipo de consulta:</label>
-                            <select id="consulta" name="consulta" required>
-                                <option value="">Seleccione una opción</option>
-                                <option value="Estado">Estado de pedido</option>
-                                <option value="soporte">Soporte técnico</option>
-                                <option value="cambio">Cambios, devoluciones y garantías</option>
-                                <option value="facturacion">Dudas sobre facturación y métodos de pago</option>
-                                <option value="reclamos">Reclamos</option>
-                                <option value="otros">Otros</option>
-                            </select>
+                    <label for="correo">Correo electrónico: </label>
+                    <input id="correo" name="correo" type="email" autocomplete="email" required>
 
-                            /*campos dinamicos*/
+                    <label for="telefono">Teléfono: </label>
+                    <input id="telefono" name="telefono" type="tel" autocomplete="tel" pattern="[0-9]{8,15}" required>
 
-                            <div id="motivo" class="campo-oculto">
-                                <label for="detalle"> Especifique su motivo por favor:</label>
-                                <input type="text" id="detalle" name="detalle" maxlength="200" placeholder="Especifique el motivo de su consulta: ">
-                            </div>
+                    <label for="consulta">Seleccione el tipo de consulta:</label>
+                    <select id="consulta" name="consulta" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="Estado">Estado de pedido</option>
+                        <option value="soporte">Soporte técnico</option>
+                        <option value="cambio">Cambios, devoluciones y garantías</option>
+                        <option value="facturacion">Dudas sobre facturación y métodos de pago</option>
+                        <option value="reclamos">Reclamos</option>
+                        <option value="otros">Otros</option>
+                    </select>
 
-                            <div id="campo-pedido" class="campo-oculto">
-                            <label for="numero-pedido">Número de pedido:</label>
-                            <input type="text" id="numero-pedido" name="numero_pedido" autocomplete="tel" pattern="[0-9]{5,9}" required>
-                            </div>
-                        </fieldset>
+                    <div id="motivo" class="campo-oculto">
+                        <label for="detalle"> Especifique su motivo por favor:</label>
+                        <textarea id="detalle" name="detalle" maxlength="200" placeholder="Especifique el motivo de su consulta: "></textarea>
+                    </div>
+
+                    <div id="campo-pedido" class="campo-oculto">
+                        <label for="numero-pedido">Número de pedido:</label>
+                        <input type="text" id="numero-pedido" name="numero_pedido" autocomplete="tel" pattern="[0-9]{5,9}">
+                    </div>
+
                     <label>
                         <input type="checkbox" name="acepta_condiciones" required>
-                        Confirmo que los datos son de prueba y acepto las condiciones.
+                        Confirmo que los datos son veridicos y acepto las condiciones de uso.
                     </label>
-                    <a type="submit" class="btn-primary">Enviar consulta </a>
-            </article>
-        </fieldset>
-    </form>
+
+                    <button type="submit" class="btn-primary">Enviar consulta</button>
+                </fieldset>
+            </form>
+        </article>
     </main>
 
-<footer>
+    <footer>
         <div class="footer-container">
             <section class="footer-info">
                 <h3>Tienda Sonido Vivo</h3>
@@ -120,6 +120,6 @@
             <p>&copy; 2026 Tienda Sonido Vivo - Todos los derechos reservados. DSY1104 Desarrollo Fullstack II.</p>
         </div>
     </footer>
-<script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

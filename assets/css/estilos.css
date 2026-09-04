@@ -23,6 +23,9 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     line-height: 1.6;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 :focus-visible {
@@ -141,10 +144,12 @@ aside h2 {
 /* 4.BOTONES */
 
 .btn-primary,
+
 .btn-secondary {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     border-radius: 999px;
+    border: none;
     background-color: var(--color-acento);
     color: var(--color-fondo);
     text-decoration: none;
@@ -262,6 +267,39 @@ aside section {
     width: 85%;
     margin-top: 0.5rem;
 }
+.mensaje-confirmacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem; 
+    padding: 1rem 0;
+}
+
+.mensaje-confirmacion h1 {
+    color: var(--color-texto);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.mensaje-confirmacion p {
+    color: var(--color-secundario);
+    max-width: 600px;
+    margin: 0;
+}
+
+.mensaje-confirmacion .btn-primary {
+    margin-top: 0.5rem; 
+}
+
+/* FORMULARIO DE CONSULTAS */
+
+.formulario-consultas fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
 
 /* MULTIMEDIA */
 .media-card {
@@ -284,6 +322,9 @@ aside section {
     font-size: 0.9rem;
     color: var(--color-secundario);
 }
+
+
+
 
 /* ASIDE */
 aside {
