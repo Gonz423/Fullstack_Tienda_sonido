@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Tienda Sonido Vivo - Especialistas en instrumentos musicales, audio profesional y equipos en Viña del Mar. Venta online y atención personalizada.">
+    <title>Tienda Sonido Vivo | Instrumentos y Audio Profesional en Viña del Mar</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Ir a la página de inicio">
+                <h2>Sonido Vivo</h2>
+            </a>
+
+            <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal"
+                aria-controls="menu-principal" aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Catálogo</a></li>
+                    <li><a href="pedidos.html">Mis Pedidos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="sucursal.html" aria-current="page">Sucursal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="sucursal-principal">
+            <div class="sucursal-hero">
+                <h1>Nuestra Sucursal</h1>
+                <p>Visítanos en nuestra tienda física ubicada en el corazón de Viña del Mar. Contamos con un equipo
+                    preparado para asesorarte en la compra de instrumentos musicales, equipos de sonido profesional y
+                    accesorios. Realizamos ventas presenciales y despacho a domicilio en toda la Región de Valparaíso.
+                </p>
+            </div>
+
+            <div class="sucursal-grid">
+                <article class="sucursal-card">
+                    <h2>Información de la Sucursal</h2>
+
+                    <address>
+                        <p><strong>Dirección:</strong> Av. Libertad #450, Viña del Mar, Región de Valparaíso</p>
+                        <p>
+                            <strong>Teléfono:</strong>
+                            <a href="tel:+56912345678">+56 9 1234 5678</a>
+                        </p>
+                        <p>
+                            <strong>Correo:</strong>
+                            <a href="mailto:contacto@sonidovivo.cl">contacto@sonidovivo.cl</a>
+                        </p>
+                    </address>
+
+                    <div class="horarios-sucursal">
+                        <h3>Horarios de Atención</h3>
+                        <p>Lunes a Viernes: <time datetime="10:00">10:00</time> a <time datetime="19:30">19:30</time>
+                            hrs.</p>
+                        <p>Sábados: <time datetime="10:30">10:30</time> a <time datetime="15:00">15:00</time> hrs.</p>
+                        <p>Domingos y Feriados: Cerrado</p>
+                    </div>
+                </article>
+
+                <article class="mapa-card">
+                    <h2>Ubicación en el Mapa</h2>
+                    <figure class="map-container">
+                        <iframe class="mapa" title="Mapa de ubicación de la sucursal"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3346.547449138246!2d-71.5501234!3d-33.0448575!2m2!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9691f9f63c1e5b5b%3A0x1c8e1e1c8e1e1e1e!2sAv.+Libertad+%23450%2C+Vi%C3%B1a+del+Mar%2C+Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1712345678901!5m2!1ses!2scl"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </figure>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <section class="footer-info">
+                <h3>Tienda Sonido Vivo</h3>
+                <p>Especialistas en equipamiento musical y sonido profesional.</p>
+                <address>
+                    <p>Dirección: Av. Libertad #450, Viña del Mar, Región de Valparaíso</p>
+                    <p>Teléfono: <a href="tel:+56912345678">+56912345678</a></p>
+                    <p>Correo: <a href="mailto:contacto@sonidovivo.cl">contacto@sonidovivo.cl</a></p>
+                </address>
+            </section>
+
+            <section class="footer-horarios">
+                <h3>Horarios de Atención</h3>
+                <p>Lunes a Viernes: <time datetime="10:00">10:00</time> a <time datetime="19:30">19:30</time> hrs.</p>
+                <p>Sábados: <time datetime="10:30">10:30</time> a <time datetime="15:00">15:00</time> hrs.</p>
+                <p>Domingos y Feriados: Cerrado</p>
+            </section>
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2026 Tienda Sonido Vivo - Todos los derechos reservados. DSY1104 Desarrollo Fullstack II.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+</body>
+
+</html>
