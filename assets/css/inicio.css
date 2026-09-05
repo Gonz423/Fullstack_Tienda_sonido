@@ -1,0 +1,51 @@
+/* Estilos de inicio */
+
+.multimedia-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-bottom: 2.5rem;
+}
+
+.media-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    justify-content: center;
+}
+
+.media-card {
+    background: var(--color-blanco);
+    border: 1px solid rgba(75, 46, 43, 0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra-card);
+    padding: 1.25rem;
+}
+
+.media-card h3 {
+    margin-bottom: 0.75rem;
+    color: var(--color-texto);
+}
+
+.media-card audio,
+.media-card video {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.media-card figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-secundario);
+}
+
+/* Adaptacion responsive */
+@media (min-width: 768px) {
+    .media-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

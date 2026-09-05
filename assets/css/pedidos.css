@@ -1,0 +1,127 @@
+/* Estilos de pedidos */
+
+.busqueda-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-bottom: 2.5rem;
+}
+
+.busqueda-section .formulario-card {
+    background-color: var(--color-blanco);
+    border: 1px solid rgba(75, 46, 43, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--sombra-card);
+}
+
+.busqueda-section legend {
+    color: var(--color-texto);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+}
+
+.busqueda-section fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.busqueda-section .campo-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.15rem;
+}
+
+.busqueda-section .campo-formulario label {
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.busqueda-section .campo-formulario input {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid rgba(75, 46, 43, 0.25);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background-color: #fdfdfd;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.busqueda-section .campo-formulario input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(123, 75, 58, 0.15);
+}
+
+.botones-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.botones-formulario .btn-primary,
+.botones-formulario .btn-secondary {
+    width: 100%;
+}
+
+.resultado-busqueda {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.85rem 1.15rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Badges de estado pedidos */
+.badge-estado {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.estado-preparacion {
+    background-color: rgba(185, 102, 34, 0.15);
+    color: var(--color-acento);
+    border: 1px solid rgba(185, 102, 34, 0.35);
+}
+
+.estado-despachado {
+    background-color: rgba(75, 46, 43, 0.12);
+    color: var(--color-primario);
+    border: 1px solid rgba(75, 46, 43, 0.28);
+}
+
+.estado-entregado {
+    background-color: rgba(46, 125, 50, 0.15);
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.35);
+}
+
+/* Adaptacion responsive */
+@media (min-width: 768px) {
+    .botones-formulario {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .botones-formulario .btn-primary,
+    .botones-formulario .btn-secondary {
+        width: auto;
+    }
+}

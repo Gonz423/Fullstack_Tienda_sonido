@@ -1,0 +1,334 @@
+/* Estilos de contacto */
+
+/* Seccion sucursal y ubicacion */
+.sucursal-principal {
+    margin-bottom: 2.5rem;
+}
+
+.sucursal-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sucursal-hero h1 {
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    margin-bottom: 0.75rem;
+}
+
+.sucursal-hero p {
+    color: var(--color-secundario);
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sucursal-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sucursal-card,
+.mapa-card {
+    background-color: var(--color-blanco);
+    border: 1px solid rgba(75, 46, 43, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--sombra-card);
+}
+
+.sucursal-card h2,
+.mapa-card h2 {
+    color: var(--color-texto);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.sucursal-card address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.sucursal-card address a {
+    color: var(--color-acento);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sucursal-card address a:hover,
+.sucursal-card address a:focus-visible {
+    color: var(--color-detalle);
+    text-decoration: underline;
+}
+
+.horarios-sucursal {
+    background: #fbf9f7;
+    border: 1px solid rgba(218, 198, 179, 0.5);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.horarios-sucursal h3 {
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.horarios-sucursal p {
+    color: var(--color-secundario);
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.horarios-sucursal p:last-child {
+    margin-bottom: 0;
+}
+
+.map-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 65%;
+}
+
+.mapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Seccion y formulario de consultas */
+.contacto-principal {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.contacto-principal h1 {
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    margin-bottom: 0.75rem;
+}
+
+.contacto-principal p {
+    color: var(--color-secundario);
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacto-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contacto-card {
+    background-color: var(--color-blanco);
+    border: 1px solid rgba(75, 46, 43, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--sombra-card);
+}
+
+.contacto-card h2 {
+    color: var(--color-texto);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+}
+
+.contacto-card address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.formulario-card {
+    max-width: 850px;
+    margin: 2.5rem auto 3rem;
+    background-color: var(--color-blanco);
+    border: 1px solid rgba(75, 46, 43, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--sombra-card);
+    text-align: left;
+}
+
+.formulario-card legend {
+    color: var(--color-texto);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+}
+
+.formulario-card h2 {
+    font-size: 1.4rem;
+    color: var(--color-texto);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.formulario-instrucciones {
+    margin-bottom: 1.25rem;
+}
+
+.formulario-instrucciones p {
+    color: var(--color-secundario);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.formulario-consultas fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+
+.campo-formulario label {
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid rgba(75, 46, 43, 0.25);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background-color: #fdfdfd;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-formulario textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 0.75rem 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-texto, #333);
+    background-color: #f5f0f0;
+    border: 1px solid #cfcdcd;
+    border-radius: 8px;
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(123, 75, 58, 0.15);
+}
+
+.campo-formulario textarea:focus {
+    background-color: #ffffff;
+    border-color: var(--color-primario, #7B4B3A);
+    box-shadow: 0 0 0 3px rgba(123, 75, 58, 0.15);
+}
+
+.campo-formulario textarea::placeholder {
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.campo-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-secundario);
+}
+
+.campo-checkbox input[type="checkbox"] {
+    margin-top: 0.2rem;
+    accent-color: var(--color-primario);
+}
+
+.formulario-consultas .btn-primary {
+    width: 100%;
+}
+
+/* Adaptacion responsiva */
+@media (min-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .campo-ancho-completo {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 768px) {
+    .sucursal-hero h1,
+    .contacto-principal h1 {
+        font-size: 2.3rem;
+    }
+
+    .sucursal-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .mapa-card .map-container {
+        padding-top: 75%;
+    }
+
+    .contacto-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .formulario-card {
+        padding: 2rem;
+    }
+
+    .formulario-consultas .btn-primary {
+        width: auto;
+        padding: 0.75rem 2rem;
+    }
+}
+

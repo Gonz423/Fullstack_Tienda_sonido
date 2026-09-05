@@ -1,0 +1,33 @@
+/* Estilos de confirmacion de envio */
+
+.mensaje-confirmacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 2rem 0;
+}
+
+.mensaje-confirmacion h1 {
+    color: var(--color-texto);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.mensaje-confirmacion p {
+    color: var(--color-secundario);
+    max-width: 600px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.mensaje-confirmacion .btn-primary {
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .mensaje-confirmacion h1 {
+        font-size: 2.3rem;
+    }
+}
