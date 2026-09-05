@@ -554,29 +554,41 @@ function calcularTotalPedido(itemsPedido) {
 }
 
 function validarFormularioContacto(nombre, email, telefono, mensaje) {
-    if (nombre.length < 3) {
-        console.log("Error: El nombre debe tener al menos 3 caracteres.");
+    if (typeof nombre !== "string" || nombre.trim().length < 3) {
+        console.log("Error de validación [Nombre]: Debe ingresar un nombre válido de al menos 3 caracteres.");
         return false;
     }
-    if (email.length < 5) {
-        console.log("Error: El correo electrónico ingresado no es válido.");
+
+    if (typeof email !== "string" || email.trim().length < 6) {
+        console.log("Error de validación [Correo]: El correo electrónico debe tener al menos 6 caracteres.");
         return false;
     }
-    if (telefono.length < 8) {
-        console.log("Error: El teléfono de contacto debe tener al menos 8 dígitos.");
+
+    if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+        console.log("Error de validación [Correo]: El formato de correo no es válido. Debe contener '@' y un punto de dominio (ejemplo: usuario@correo.cl).");
         return false;
     }
-    if (mensaje.length < 10) {
-        console.log("Error: El mensaje de consulta debe contener al menos 10 caracteres.");
+
+    if (typeof telefono !== "string" || telefono.trim().length < 8) {
+        console.log("Error de validación [Teléfono]: El teléfono de contacto debe contener al menos 8 dígitos (ejemplo: +56912345678).");
         return false;
     }
-    console.log("Validación exitosa: Todos los campos del formulario de contacto son correctos.");
+
+    if (typeof mensaje !== "string" || mensaje.trim().length < 10) {
+        console.log("Error de validación [Mensaje]: El mensaje de consulta debe contener al menos 10 caracteres detallando su solicitud.");
+        return false;
+    }
+
+    console.log("Validación exitosa: Todos los campos del formulario de contacto son correctos y válidos.");
     return true;
 }
 
 function inicializarSistema() {
     console.log("Tienda Sonido Vivo - Sistema de Catálogo Inicializado");
     console.log("Total de productos cargados en catálogo:", catalogoInstrumentos.length);
+    console.log("Ejecutando pruebas de validación de formulario...");
+    validarFormularioContacto("Carlos", "carlos@correo.cl", "+56987654321", "Consulta por disponibilidad de guitarra Squier");
 }
 
 inicializarSistema();
+

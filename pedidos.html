@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Tienda Sonido Vivo - Especialistas en instrumentos musicales, audio profesional y equipos en Viña del Mar. Venta online y atención personalizada.">
-    <title>Mis pedidos | Tienda Sonido Vivo</title>
+        content="Revisa el estado de tus compras y pedidos en tiempo real en Tienda Sonido Vivo Viña del Mar. Retiro en sucursal y despacho a todo Chile.">
+    <title>Mis Pedidos | Tienda Sonido Vivo</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 
@@ -42,24 +42,26 @@
                 despacho a domicilio.</p>
         </section>
 
-        <article class="media-card">
-            <form id="form-pedidos" class="formulario-consultas" action="#" method="get">
-                <fieldset>
-                    <h2>Consultar Estado de tu Pedido</h2>
-                    <div class="campo-formulario">
-                        <label for="numero-pedido">Número de Pedido:</label>
-                        <input type="text" id="numero-pedido" name="numero_pedido" placeholder="Ej: 10425"
-                            pattern="[0-9]{4,8}" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Buscar Pedido</button>
-                    <button type="button" id="btn-limpiar" class="btn-secondary"
-                        style="display: none; margin-top: 0.75rem;">Ver todos los pedidos</button>
-                </fieldset>
-            </form>
-            <div id="resultado-busqueda"
-                style="display: none; margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600;">
-            </div>
-        </article>
+        <section class="busqueda-section" aria-labelledby="busqueda-pedidos-titulo">
+            <article class="formulario-card">
+                <form id="form-pedidos" class="formulario-consultas" action="#" method="get">
+                    <fieldset>
+                        <legend id="busqueda-pedidos-titulo">Consultar Estado de tu Pedido</legend>
+                        <div class="campo-formulario">
+                            <label for="numero-pedido">Número de Pedido:</label>
+                            <input type="text" id="numero-pedido" name="numero_pedido" placeholder="Ej: 10425 o #10425"
+                                pattern="[#]?[0-9]{4,8}" required title="Ingresa un número de pedido de 4 a 8 dígitos (ej: 10425 o #10425)">
+                        </div>
+                        <div class="botones-formulario">
+                            <button type="submit" class="btn-primary">Buscar Pedido</button>
+                            <button type="button" id="btn-limpiar" class="btn-secondary campo-oculto">Ver todos los pedidos</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <div id="resultado-busqueda" class="resultado-busqueda campo-oculto" role="status" aria-live="polite">
+                </div>
+            </article>
+        </section>
 
         <section class="tabla-section" aria-labelledby="tabla-pedidos-title">
             <h2 id="tabla-pedidos-title">Historial y Estados de Pedido</h2>
@@ -83,21 +85,21 @@
                             <td>04/09/2026</td>
                             <td>Guitarra Fender CD-60S</td>
                             <td>Despacho a Domicilio</td>
-                            <td><strong>En preparación</strong></td>
+                            <td><span class="badge-estado estado-preparacion"><strong>En preparación</strong></span></td>
                         </tr>
                         <tr>
                             <th scope="row">#10418</th>
                             <td>03/09/2026</td>
                             <td>Teclado Yamaha PSR-E373</td>
                             <td>Despacho a Domicilio</td>
-                            <td><strong>Despachado</strong></td>
+                            <td><span class="badge-estado estado-despachado"><strong>Despachado</strong></span></td>
                         </tr>
                         <tr>
                             <th scope="row">#10390</th>
                             <td>30/08/2026</td>
                             <td>Micrófono Shure SM58</td>
                             <td>Retiro en Sucursal</td>
-                            <td><strong>Entregado</strong></td>
+                            <td><span class="badge-estado estado-entregado"><strong>Entregado</strong></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -124,6 +126,11 @@
                     enviaremos el número de transporte asegurado a tu correo.</p>
                 <p><strong>Recepción:</strong> Cualquier persona mayor de 18 años puede recibir el pedido en la
                     dirección especificada al comprar.</p>
+            </section>
+
+            <section>
+                <h3>Atención y Soporte</h3>
+                <p>¿Tienes dudas técnicas o consultas sobre tu compra? Escríbenos a través de nuestro <a href="contacto.html">formulario de contacto</a> o visítanos en nuestra <a href="sucursal.html">sucursal en Viña del Mar</a>.</p>
             </section>
         </aside>
     </main>
