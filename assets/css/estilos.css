@@ -216,6 +216,27 @@ aside h2 {
     margin: 0 auto;
 }
 
+.contacto-principal {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contacto-principal h1 {
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    margin-bottom: 0.75rem;
+}
+
+.contacto-principal p {
+    color: var(--color-secundario);
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+
 /* 4.BOTONES */
 
 .btn-primary,
@@ -254,6 +275,7 @@ aside h2 {
     min-width: 0;
     justify-content: center;
 }
+
 
 .card-producto,
 .media-card,
@@ -445,14 +467,16 @@ aside section {
 }
 
 .contacto-grid {
+
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 1.5rem;
+
 }
 
 .contacto-card,
 .formulario-card {
+    margin-top: 2.5rem;
     background-color: var(--color-blanco);
     border: 1px solid rgba(75, 46, 43, 0.15);
     border-radius: 16px;
@@ -478,6 +502,7 @@ aside section {
 }
 
 .formulario-consultas fieldset {
+
     border: none;
     padding: 0;
     margin: 0;
@@ -490,6 +515,7 @@ aside section {
 }
 
 .campo-formulario label {
+    
     font-weight: 600;
     color: var(--color-texto);
     margin-bottom: 0.4rem;
@@ -788,7 +814,9 @@ footer {
     .boton-menu {
         display: none;
     }
-
+    .contacto-principal h1 {
+    font-size: 2.3rem;
+    }
     .menu {
         display: flex;
         width: auto;
@@ -862,4 +890,63 @@ footer {
     .mapa-card .map-container {
         padding-top: 75%;
     }
+  
+.formulario-card {
+    max-width: 850px;
+    margin: 0 auto 3rem;
+    background-color: var(--color-blanco);
+    border: 1px solid rgba(75, 46, 43, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--sombra-card);
+    text-align: left; 
+}
+
+.formulario-card h2 {
+    font-size: 1.4rem;
+    color: var(--color-texto);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .campo-ancho-completo {
+        grid-column: 1 / -1;
+    }
+}
+
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+
+.campo-formulario label {
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+
+.formulario-consultas .btn-primary {
+    width: auto;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+}
 }
