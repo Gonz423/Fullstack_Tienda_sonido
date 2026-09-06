@@ -1,0 +1,187 @@
+/* Estilos de login */
+
+/* Seccion y tarjeta de login */
+.login-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+    background-color: var(--color-blanco);
+    border: 1px solid rgba(75, 46, 43, 0.15);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    box-shadow: var(--sombra-card);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.login-header h1 {
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: var(--color-secundario);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.form-login fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Campos del formulario */
+.form-login .campo-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-login .campo-formulario label {
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.form-login .campo-formulario input[type="email"],
+.form-login .campo-formulario input[type="password"],
+.form-login .campo-formulario input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid rgba(75, 46, 43, 0.25);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background-color: #fdfdfd;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-login .campo-formulario input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(123, 75, 58, 0.15);
+}
+
+/* Opciones auxiliares y enlaces */
+.login-opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.login-opciones .campo-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-secundario);
+    cursor: pointer;
+    margin: 0;
+}
+
+.login-opciones .campo-checkbox label {
+    cursor: pointer;
+}
+
+.login-opciones .campo-checkbox input {
+    accent-color: var(--color-primario);
+    cursor: pointer;
+}
+
+.enlace-olvido {
+    color: var(--color-acento);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.enlace-olvido:hover,
+.enlace-olvido:focus-visible {
+    color: var(--color-detalle);
+    text-decoration: underline;
+}
+
+.btn-submit-login {
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.85rem 1.5rem;
+}
+
+/* Mensajes de respuesta */
+.mensaje-login {
+    display: none;
+    margin-top: 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.mensaje-login.mensaje-exito {
+    display: block;
+    background-color: rgba(46, 125, 50, 0.12);
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.3);
+}
+
+.mensaje-login.mensaje-error {
+    display: block;
+    background-color: rgba(211, 47, 47, 0.12);
+    color: #c62828;
+    border: 1px solid rgba(211, 47, 47, 0.3);
+}
+
+.login-footer {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(75, 46, 43, 0.12);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-secundario);
+}
+
+.login-footer a {
+    color: var(--color-acento);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-footer a:hover,
+.login-footer a:focus-visible {
+    color: var(--color-detalle);
+    text-decoration: underline;
+}
+
+/* Adaptacion responsive */
+@media (min-width: 600px) {
+    .login-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .login-header h1 {
+        font-size: 2.1rem;
+    }
+}
