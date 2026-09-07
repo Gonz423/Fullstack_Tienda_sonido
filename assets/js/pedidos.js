@@ -1,46 +1,83 @@
-const formPedidos = document.querySelector("#form-pedidos");
-const inputNumeroPedido = document.querySelector("#numero-pedido");
-const resultadoBusqueda = document.querySelector("#resultado-busqueda");
-const btnLimpiar = document.querySelector("#btn-limpiar");
-const filasPedidos = document.querySelectorAll("#tabla-pedidos-body tr");
+function validarCodigoPedido(valor) {
+    var limpio = valor ? valor.trim() : "";
 
-if (formPedidos) {
-    formPedidos.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const busqueda = inputNumeroPedido.value.trim().replace("#", "");
+    if (limpio === "") {
+        console.log("Debe ingresar un número de pedido.");
+        return false;
+    }
 
-        if (!busqueda) return;
+    var numeroLimpio = limpio.indexOf("#") === 0 ? limpio.substring(1) : limpio;
 
-        let encontrado = false;
+    if (!/^[0-9]+$/.test(numeroLimpio)) {
+        console.log("Error [Búsqueda Pedido]: El número de pedido debe contener únicamente dígitos numéricos.");
+        return false;
+    }
 
-        filasPedidos.forEach(fila => {
-            const textoFila = fila.textContent;
-            if (textoFila.includes(busqueda)) {
-                fila.style.display = "";
-                encontrado = true;
-            } else {
-                fila.style.display = "none";
-            }
-        });
+    if (numeroLimpio.length < 4 || numeroLimpio.length > 8) {
+        console.log("Error [Búsqueda Pedido]: El número de pedido debe tener entre 4 y 8 dígitos (actual: " + numeroLimpio.length + ").");
+        return false;
+    }
 
-        resultadoBusqueda.style.display = "block";
-        btnLimpiar.style.display = "inline-block";
-
-        if (encontrado) {
-            resultadoBusqueda.style.backgroundColor = "rgba(123, 75, 58, 0.15)";
-            resultadoBusqueda.style.color = "var(--color-texto)";
-            resultadoBusqueda.textContent = "Pedido #" + busqueda + " localizado en el sistema.";
-        } else {
-            resultadoBusqueda.style.backgroundColor = "rgba(185, 102, 34, 0.15)";
-            resultadoBusqueda.style.color = "var(--color-detalle)";
-            resultadoBusqueda.textContent = "No se encontró el pedido #" + busqueda + ". Verifica el número e intenta nuevamente.";
-        }
-    });
-
-    btnLimpiar.addEventListener("click", function () {
-        inputNumeroPedido.value = "";
-        filasPedidos.forEach(fila => fila.style.display = "");
-        resultadoBusqueda.style.display = "none";
-        btnLimpiar.style.display = "none";
-    });
+    console.log("Formato de número de pedido válido -> #" + numeroLimpio);
+    return true;
 }
+
+function procesarBusquedaPedido(evento) {
+    evento.preventDefault();
+    console.log("Inicio de la consulta de pedido. Procesando entrada del usuario...");
+
+    var inputPedido = document.getElementById("numero-pedido");
+    var valorIngresado = inputPedido ? inputPedido.value : "";
+
+    var esValido = validarCodigoPedido(valorIngresado);
+
+    if (!esValido) {
+        console.log("Resultado: Consulta rechazada. Ingrese un código válido.");
+        return;
+    }
+
+    var codigoBuscado = valorIngresado.trim().replace("#", "");
+
+    var pedidosRegistrados = ["10425", "10418", "10390"];
+    var encontrado = false;
+
+    for (var i = 0; i < pedidosRegistrados.length; i++) {
+        if (pedidosRegistrados[i] === codigoBuscado) {
+            encontrado = true;
+            break;
+        }
+    }
+
+    if (encontrado) {
+        console.log("Estado del pedido: Pedido #" + codigoBuscado + " localizado con éxito en el sistema.");
+       try {
+            var consultaPedido = {
+                numeroPedido: codigoBuscado,
+                fechaConsulta: new Date().toISOString()
+            };
+            localStorage.setItem("ultimoPedidoConsultado", JSON.stringify(consultaPedido));
+            console.log("Persistencia: Pedido #" + codigoBuscado + " registrado en localStorage.");
+        } catch (error) {
+            console.log("Error al guardar en localStorage:", error);
+        }
+    } else {
+        console.log("Aviso [Búsqueda Pedido]: El pedido #" + codigoBuscado + " no se encuentra en el historial.");
+    }
+
+    console.log("=== FIN DE LA CONSULTA ===");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    var formPedidos = document.getElementById("form-pedidos");
+    var btnLimpiar = document.getElementById("btn-limpiar");
+
+    if (formPedidos) {
+        formPedidos.addEventListener("submit", procesarBusquedaPedido);
+    }
+
+    if (btnLimpiar) {
+        btnLimpiar.addEventListener("click", function () {
+            console.log("Interacción: Solicitud para reiniciar visualización de pedidos recibida.");
+        });
+    }
+});
