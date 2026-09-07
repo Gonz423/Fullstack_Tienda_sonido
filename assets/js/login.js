@@ -1,4 +1,4 @@
-function validarCorreoLogin(valor) {
+ function validarCorreoLogin(valor) {
     var limpio = valor ? valor.trim() : "";
     if (limpio === "") {
         console.log("El campo de correo electrónico está vacío.");
