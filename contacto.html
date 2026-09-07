@@ -89,7 +89,7 @@
         <section class="contacto-principal" aria-labelledby="titulo-formulario">
             <div class="contacto">
                 <article class="formulario-card">
-                    <form class="formulario-consultas" action="confirmacion.html" method="get">
+                    <form class="formulario-consultas" action="confirmacion.html" method="get" novalidate>
                         <fieldset>
                             <legend id="titulo-formulario">Formulario de Consultas</legend>
                             <div class="formulario-instrucciones">
@@ -139,7 +139,7 @@
                                 <div id="campo-pedido" class="campo-formulario">
                                     <label for="numero-pedido">Número de pedido (opcional):</label>
                                     <input type="text" id="numero-pedido" name="numero_pedido" autocomplete="off"
-                                        pattern="[0-9]{5,9}" placeholder="Ej: 10452">
+                                        pattern="^[\d\s+\-()]{11,16}$" placeholder="Ej: 10452">
                                 </div>
 
                                 <div class="campo-formulario campo-ancho-completo">
@@ -188,7 +188,7 @@
     </footer>
 
     <script src="assets/js/menu.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/contacto.js"></script>
 </body>
 
 </html>
