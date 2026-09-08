@@ -85,6 +85,20 @@
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.resultado-busqueda.mensaje-exito {
+    display: block;
+    background-color: rgba(46, 125, 50, 0.12);
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.35);
+}
+
+.resultado-busqueda.mensaje-error {
+    display: block;
+    background-color: rgba(211, 47, 47, 0.12);
+    color: #c62828;
+    border: 1px solid rgba(211, 47, 47, 0.35);
+}
+
 /* Badges de estado pedidos */
 .badge-estado {
     display: inline-block;

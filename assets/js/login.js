@@ -52,36 +52,57 @@ function validarContrasenaLogin(valor) {
 }
 
 
+function mostrarMensajeLogin(mensaje, esExito) {
+    var contenedor = document.getElementById("mensaje-login");
+    if (!contenedor) return;
+    contenedor.textContent = mensaje;
+    contenedor.className = "mensaje-login " + (esExito ? "mensaje-exito" : "mensaje-error");
+}
+
 function validarFormularioLogin(evento) {
     evento.preventDefault();
     console.log("Validando formulario de inicio de sesión...");
 
     var inputCorreo = document.getElementById("correo");
-    var inputPassword = document.getElementById("password")|| document.getElementById("password");
+    var inputPassword = document.getElementById("password") || document.getElementById("password");
 
     var valorCorreo = inputCorreo ? inputCorreo.value : "";
     var valorPassword = inputPassword ? inputPassword.value : "";
 
     var correoValido = validarCorreoLogin(valorCorreo);
+    if (!correoValido) {
+        mostrarMensajeLogin("Por favor, ingresa un correo electrónico válido (ejemplo: usuario@correo.cl).", false);
+        if (inputCorreo) inputCorreo.focus();
+        return;
+    }
+
     var contrasenaValida = validarContrasenaLogin(valorPassword);
+    if (!contrasenaValida) {
+        mostrarMensajeLogin("La contraseña debe tener entre 6 y 20 caracteres e incluir mayúscula, minúscula, número y un carácter especial.", false);
+        if (inputPassword) inputPassword.focus();
+        return;
+    }
 
     if (correoValido && contrasenaValida) {
         console.log("Formulario de inicio de sesión válido.");
-    try {
-        var sesion= {
-            correo: validarCorreoLogin(valorCorreo),
-            fechaCreacion: new Date().toISOString()
-        };
-        
-        localStorage.setItem("sesionUsuario", JSON.stringify(sesion));
-        console.log("Sesión guardada en localStorage.");
-    } catch (error) {
-        console.log("Error al guardar la sesión:", error);
-        } 
-    console.log("Validación de formulario de inicio de sesión completada. \n Usuario autentificado correctamente: " + correoValido);
+        try {
+            var sesion = {
+                correo: valorCorreo.trim().toLowerCase(),
+                fechaCreacion: new Date().toISOString()
+            };
+            localStorage.setItem("sesionUsuario", JSON.stringify(sesion));
+            console.log("Sesión guardada en localStorage.");
+        } catch (error) {
+            console.log("Error al guardar la sesión:", error);
+        }
+        mostrarMensajeLogin("¡Inicio de sesión exitoso! Redirigiendo...", true);
+        console.log("Validación de formulario de inicio de sesión completada. \n Usuario autentificado correctamente: " + valorCorreo);
+
+        setTimeout(function () {
+            window.location.href = "index.html";
+        }, 1200);
     }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
     var formularioLogin = document.getElementById("form-login") || document.querySelector(".form-login");

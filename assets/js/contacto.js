@@ -85,6 +85,14 @@ function validarTerminosContacto(checkbox) {
 }
 
 
+function mostrarMensajeContacto(mensaje, esExito) {
+    var contenedor = document.getElementById("mensaje-contacto");
+    if (!contenedor) return;
+    contenedor.textContent = mensaje;
+    contenedor.className = "mensaje-contacto " + (esExito ? "mensaje-exito" : "mensaje-error");
+    contenedor.classList.remove("campo-oculto");
+}
+
 function procesarFormularioContacto(evento) {
     evento.preventDefault();
     console.log("Formulario de contacto enviado. Iniciando validación...");
@@ -107,41 +115,85 @@ function procesarFormularioContacto(evento) {
     var valorMensaje = textareaMensaje ? textareaMensaje.value : "";
 
     var nombreValido = validarTextoSimple(valorNombre, "Nombre", 3, 80);
-    var apellidosValido = validarTextoSimple(valorApellidos, "Apellidos", 3, 80);
-    var correoValido = validarCorreoContacto(valorCorreo);
-    var telefonoValido = validarTelefonoContacto(valorTelefono);
-    var consultaValida = validarTipoConsulta(valorConsulta);
-    var pedidoValido = validarNumeroPedidoOpcional(valorPedido, valorConsulta);
-    var mensajeValido = validarTextoSimple(valorMensaje, "Mensaje", 10, 300);
-    var terminosValidos = validarTerminosContacto(checkTerminos);
-
-    var formularioValido = nombreValido && apellidosValido && correoValido && 
-                           telefonoValido && consultaValida && pedidoValido && 
-                           mensajeValido && terminosValidos;
-
-    if (formularioValido) {
-        console.log("Formulario de contacto válido.");
-
-        try {
-            var consultaGuardada = {
-                nombre: valorNombre.trim(),
-                apellidos: valorApellidos.trim(),
-                correo: valorCorreo.trim().toLowerCase(),
-                telefono: valorTelefono.trim(),
-                tipoConsulta: valorConsulta,
-                numeroPedido: valorPedido.trim(),
-                mensaje: valorMensaje.trim(),
-                fechaEnvio: new Date().toISOString()
-            };
-            localStorage.setItem("ultimaConsultaContacto", JSON.stringify(consultaGuardada));
-            console.log("Consulta almacenada exitosamente en localStorage.");
-        } catch (error) {
-            console.log("Error al guardar la consulta en localStorage:", error);
-        }
-        location.href = "confirmacion.html";
-    } else {
-        console.log("Formulario de contacto inválido. Por favor revise los errores señalados arriba.");
+    if (!nombreValido) {
+        mostrarMensajeContacto("Por favor, ingresa un nombre válido (mínimo 3 caracteres).", false);
+        if (inputNombre) inputNombre.focus();
+        return;
     }
+
+    var apellidosValido = validarTextoSimple(valorApellidos, "Apellidos", 3, 80);
+    if (!apellidosValido) {
+        mostrarMensajeContacto("Por favor, ingresa tus apellidos (mínimo 3 caracteres).", false);
+        if (inputApellidos) inputApellidos.focus();
+        return;
+    }
+
+    var correoValido = validarCorreoContacto(valorCorreo);
+    if (!correoValido) {
+        mostrarMensajeContacto("Por favor, ingresa un correo electrónico válido (ejemplo: usuario@correo.cl).", false);
+        if (inputCorreo) inputCorreo.focus();
+        return;
+    }
+
+    var telefonoValido = validarTelefonoContacto(valorTelefono);
+    if (!telefonoValido) {
+        mostrarMensajeContacto("Por favor, ingresa un teléfono válido (entre 8 y 12 dígitos, ej: +56 9 1234 5678).", false);
+        if (inputTelefono) inputTelefono.focus();
+        return;
+    }
+
+    var consultaValida = validarTipoConsulta(valorConsulta);
+    if (!consultaValida) {
+        mostrarMensajeContacto("Por favor, selecciona un tipo de consulta.", false);
+        if (selectConsulta) selectConsulta.focus();
+        return;
+    }
+
+    var pedidoValido = validarNumeroPedidoOpcional(valorPedido, valorConsulta);
+    if (!pedidoValido) {
+        mostrarMensajeContacto("Si ingresas un número de pedido opcional, debe ser numérico entre 4 y 8 dígitos.", false);
+        if (inputPedido) inputPedido.focus();
+        return;
+    }
+
+    var mensajeValido = validarTextoSimple(valorMensaje, "Mensaje", 10, 300);
+    if (!mensajeValido) {
+        mostrarMensajeContacto("Por favor, ingresa el detalle de tu consulta (mínimo 10 caracteres).", false);
+        if (textareaMensaje) textareaMensaje.focus();
+        return;
+    }
+
+    var terminosValidos = validarTerminosContacto(checkTerminos);
+    if (!terminosValidos) {
+        mostrarMensajeContacto("Debes confirmar los datos verídicos y aceptar las condiciones de uso.", false);
+        if (checkTerminos) checkTerminos.focus();
+        return;
+    }
+
+    console.log("Formulario de contacto válido.");
+
+    try {
+        var consultaGuardada = {
+            nombre: valorNombre.trim(),
+            apellidos: valorApellidos.trim(),
+            correo: valorCorreo.trim().toLowerCase(),
+            telefono: valorTelefono.trim(),
+            tipoConsulta: valorConsulta,
+            numeroPedido: valorPedido.trim(),
+            mensaje: valorMensaje.trim(),
+            fechaEnvio: new Date().toISOString()
+        };
+        localStorage.setItem("ultimaConsultaContacto", JSON.stringify(consultaGuardada));
+        console.log("Consulta almacenada exitosamente en localStorage.");
+    } catch (error) {
+        console.log("Error al guardar la consulta en localStorage:", error);
+    }
+
+    mostrarMensajeContacto("¡Consulta enviada con éxito! Redirigiendo...", true);
+
+    setTimeout(function () {
+        location.href = "confirmacion.html";
+    }, 1200);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
