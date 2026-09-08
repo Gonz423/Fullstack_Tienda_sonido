@@ -16,50 +16,22 @@ function inicializarPaginaInicio() {
     } catch (error) {
         console.log("Error al consultar el almacenamiento local:", error);
     }
-
-    verificarRecursosMultimedia();
 }
 
-function verificarRecursosMultimedia() {
-    var archivosAComprobar = [
-        "assets/img/poster-video.jpg",
-        "assets/audio/demo-amplificador.mp3",
-        "assets/video/tour-tienda.mp4"
-    ];
+function configurarMenuHamburguesa() {
+    var botonMenu = document.getElementById("boton-menu");
+    var menuPrincipal = document.getElementById("menu-principal") || document.querySelector(".menu");
 
-    console.log("Comprobando disponibilidad de archivos multimedia...");
-
-    for (var i = 0; i < archivosAComprobar.length; i++) {
-        var ruta = archivosAComprobar[i];
-        comprobarRecurso(ruta);
-    }
-}
-
-function comprobarRecurso(ruta) {
-    var peticion = new XMLHttpRequest();
-    peticion.open("HEAD", ruta, true);
-
-    peticion.onreadystatechange = function () {
-        if (peticion.readyState === 4) {
-            if (peticion.status === 200) {
-                console.log("Archivo disponible -> " + ruta);
-            } else {
-                console.log("Archivo ausente o no localizado -> " + ruta);
-            }
-        }
-    };
-
-    peticion.onerror = function () {
-        console.log("No se pudo localizar el recurso -> " + ruta);
-    };
-
-    try {
-        peticion.send();
-    } catch (e) {
-        console.log("Excepción al consultar " + ruta);
+    if (botonMenu && menuPrincipal) {
+        botonMenu.addEventListener("click", function () {
+            var estaAbierto = menuPrincipal.classList.toggle("menu-abierto");
+            botonMenu.setAttribute("aria-expanded", estaAbierto ? "true" : "false");
+            botonMenu.textContent = estaAbierto ? "✕" : "☰";
+        });
     }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    configurarMenuHamburguesa();
     inicializarPaginaInicio();
-});
+});
