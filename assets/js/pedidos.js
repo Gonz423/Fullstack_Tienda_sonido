@@ -93,7 +93,7 @@ function procesarBusquedaPedido(evento) {
 
     if (encontrado) {
         console.log("Estado del pedido: Pedido #" + codigoBuscado + " localizado con éxito en el sistema.");
-        mostrarResultadoPedido("✅ ¡Pedido #" + codigoBuscado + " localizado con éxito en el sistema! Revisa el detalle en la tabla.", true, true);
+        mostrarResultadoPedido("¡Pedido #" + codigoBuscado + " localizado con éxito en el sistema! Revisa el detalle en la tabla.", true, true);
         try {
             var consultaPedido = {
                 numeroPedido: codigoBuscado,
@@ -106,7 +106,7 @@ function procesarBusquedaPedido(evento) {
         }
     } else {
         console.log("Aviso [Búsqueda Pedido]: El pedido #" + codigoBuscado + " no se encuentra en el historial.");
-        mostrarResultadoPedido("⚠️ El pedido #" + codigoBuscado + " no se encuentra en el historial reciente.", false, true);
+        mostrarResultadoPedido("El pedido #" + codigoBuscado + " no se encuentra en el historial reciente.", false, true);
     }
 
     console.log("=== FIN DE LA CONSULTA ===");

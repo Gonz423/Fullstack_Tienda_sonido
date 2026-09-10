@@ -5,8 +5,8 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
     width: 100%;
-    max-width: 100%;
-    min-width: 0;
+    max-width: 1200px;
+    margin: 0 auto;
     justify-content: center;
 }
 
@@ -106,3 +106,14 @@
         gap: 1.75rem;
     }
 }
+
+/* Adaptacion para computador de escritorio (>= 1280px) */
+@media (min-width: 1280px) {
+    .grid-productos {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 2.25rem;
+    }
+}
+

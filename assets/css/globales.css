@@ -200,8 +200,11 @@ aside h2 {
     background-color: var(--color-acento);
     color: var(--color-fondo);
     text-decoration: none;
+    font-family: inherit;
+    font-size: 0.95rem;
     font-weight: 700;
     text-align: center;
+    cursor: pointer;
     box-shadow: 0 4px 14px rgba(247, 140, 53, 0.945);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -386,5 +389,44 @@ footer {
 
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Adaptacion para computador de escritorio (>= 1280px) */
+@media (min-width: 1280px) {
+    main {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem 4rem;
+    }
+
+    .header-container,
+    .footer-container {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    .hero-section {
+        padding: 4rem 3rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.75rem;
+    }
+
+    aside {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        text-align: left;
+    }
+
+    aside > h2 {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+
+    aside section {
+        margin-top: 0;
     }
 }
